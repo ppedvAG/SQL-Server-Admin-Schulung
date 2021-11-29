@@ -67,6 +67,7 @@ RAM
 cool.. SQL Server max Arbeitsspeicher sollte auf einen Wert beschränbkt werden
 damit das OS noch Platz zum Arbeiten besitzt.
 --> Gesmat - OS
+--bei 4000--2200 als max
 
 
 MAXDOP _ 
