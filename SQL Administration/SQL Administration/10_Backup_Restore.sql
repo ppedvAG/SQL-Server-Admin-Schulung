@@ -114,12 +114,100 @@ V
 		T : 16:20
 
 
+*/
+
+--Medium= Sicherung (kann auch mehrere Sicherung enthalten)
+
+--Diff Sicherung
+BACKUP DATABASE [ShopDB] TO  DISK = N'D:\_BACKUP\ShopDB.bak' WITH  DIFFERENTIAL 
+, NOFORMAT, NOINIT,  NAME = N'ShopDB-Diff'
+, SKIP, NOREWIND, NOUNLOAD,  STATS = 10
+GO
+
+--Log
+BACKUP LOG [ShopDB] TO  DISK = N'D:\_BACKUP\ShopDB.bak' WITH NOFORMAT
+, NOINIT,  NAME = N'ShopDB-TLog'
+, SKIP, NOREWIND, NOUNLOAD,  STATS = 10
+GO
+
+-- V D TTT D TTT D TTT
+
+
+
+-----Fall1 : Logischen Fehler
+--Daten wurde versehentlich fehlerhaft manipuliert
+
+--Restore geht eigt nur auf einen Zeitpunkt zurück
+--Idee : DB soll weiterlaufen, aber Daten muss man korrigieren
+
+--Backup = Online  Restore = Offline
+
+--Workaround: DB unter anderern Namen restoren zu einem Zeitpunkt kurz vor Fehler
+--
+
+
+
+
+
+use shopdb
+
+
+select * into mess from sysmessages
+
+update mess set error = error +1
 
 
 
 
 
 
+--Fall 2 : auf anderen Server restoren
+--V D TTT
+--auf Pfade aufpassen
+--Rechte des Dienstes (Servicekoten greifen auf ext Ressourcen zu )
+
+
+--Fall 3: DB muss restore werden zu einem best Zeitpunkt
+--  11:14:00
+--mit geringst möglichen Datenverlust
+
+--die Daten von 11:15 (letzte Backup) bis 11:48 (jetzt) sollen nicht verloren gehen
+
+--1.  User runterkicken
+---2. Logsicherung (dauert 5 min)
+---3. Restore
+
+--DB aus Dateien wiederherstellen
+
+
+---Fall 4 Wen man weiss
+
+
+--SNAPSHOT
+
+
+-- Create the database snapshot
+CREATE DATABASE SNNAME ON
+( NAME = <Database_Name, sysname, Database_Name>, FILENAME = 
+'C:\Program Files\Microsoft SQL Server\MSSQL15.MSSQLSERVER\MSSQL\Data\<Database_Name, sysname, Database_Name>_<Snapshot_Id,,Snapshot_ID>.ss' )
+AS SNAPSHOT OF OrigDB;
+GO
+
+
+create database sn_1215 on
+(
+Name = ShopDB, --logische Name der DAtendatei
+Filename='D:\_HRDB\sn_1215.mdf' --neue Datei des Snapshot
+)
+as snapshot of shopdb
+
+--Restore vom Snapshot
+--es darf keiner auf dem Snapshot sein und keiner auf der Shopdb
+
+use master;
+
+restore database shopdb
+from database_snapshot='sn_1215'
 
 
 
