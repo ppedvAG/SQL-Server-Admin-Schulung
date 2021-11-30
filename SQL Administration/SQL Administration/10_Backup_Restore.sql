@@ -211,4 +211,58 @@ from database_snapshot='sn_1215'
 
 
 
+/*
+DB Größe: 2 GB
+Datenverlust in Zeit: 12h
+Ausfallzeit in:  30min bis 60min
+
+Arbeitszeiten: Mo - FR
+Azeit am Tag: 6 - 20 Uhr
+
+Import von Daten 0 bis 200
+
+
+T.. brauch ich nicht wg Diff Sicherung und weil zu  wenig TX stattfinden..
+--> Wiederherstellungmodel: Einfach
+
+V: täglich  4 Uhr  (in weniger als 1 min fertig)
+D: alle 30min D (630 bis 2030)
+
+
+
+
+
+
+
+
+/*
+DB Größe: 20 GB
+Datenverlust in Zeit: 30min
+Ausfallzeit in:  30min bis 60min
+
+Arbeitszeiten: Mo - FR
+Azeit am Tag: 6 - 20 Uhr
+
+Import von Daten 0 bis 200
+
+
+V: täglich ausser Sa und So  400
+D: alle 2 Ts 705-- alle 1h 2005
+T: alle 30min.. 630 bis 2030
+
+
+DB Größe: 500 GB
+Datenverlust in Zeit: 15min
+Ausfallzeit in:  15min
+---> Hochverfügbarkeit (Spiegeln, HOchverfügbarkeitsgruppen, Cluster nur unter Umständen)
+
+
+Arbeitszeiten: Mo - FR
+Azeit am Tag: 6 - 20 Uhr
+
+Import von Daten 0 bis 200
+
+
+
+
 */
