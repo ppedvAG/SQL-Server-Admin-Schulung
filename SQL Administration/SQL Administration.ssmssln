@@ -11,7 +11,6 @@ Global
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{EA81AFA2-15FF-4815-81FA-0D7C6A254937}.Default|Default.ActiveCfg = Default
-		{D6A9F4EA-1AF2-45B1-AB5D-E29C1E323944}.Default|Default.ActiveCfg = Default
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
