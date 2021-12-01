@@ -49,5 +49,15 @@
 # Audit
 * Überwachung
 
-https://ppedv-my.sharepoint.com/:f:/g/personal/andreasr_ppedv_de/EqCx7TdEae5KkcsPedJ08PsBCGmaa81fNx0naYKBeZfv-g?e=xjvKz3
- 
+# Indizes
+* Tuning --> Datenbankoptimierungsassistent
+
+# Monitoring
+* Aktivitätsmonitor
+* DMVs
+* Perfmon
+* Profiler
+* Policies
+
+
+
